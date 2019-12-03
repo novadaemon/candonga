@@ -1,0 +1,11 @@
+{
+    "name": "jdamian/api",
+    "description": "Application to test RESTful API with Laravel",
+    "authors": [
+        {
+            "name": "Jesus Damian",
+            "email": "novadaemon@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
