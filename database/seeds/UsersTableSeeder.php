@@ -14,6 +14,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('users')->delete();
+
         User::forceCreate([
             'name' => 'admin',
             'email' => 'admin',

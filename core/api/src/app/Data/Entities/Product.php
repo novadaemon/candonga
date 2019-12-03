@@ -17,6 +17,7 @@ class Product extends Model
      */
     protected $fillable = [
         'issn',
+        'name',
         'customer_id',
         'status',
     ];

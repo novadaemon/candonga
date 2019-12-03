@@ -19,7 +19,6 @@ class ApiServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'api');
         $this->publishes([
             __DIR__.'/views' => base_path('resources/views'),
-            __DIR__.'/database/seeds' => base_path('database/seeds'),
         ]);
     }
 
@@ -30,7 +29,7 @@ class ApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make(ApiController::class);
+
     }
 
 }
