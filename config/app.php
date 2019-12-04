@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Core\Api\ApiServiceProvider::class,
+        Candonga\CandongaServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -3,7 +3,7 @@
 use Faker\Factory;
 
 use Illuminate\Database\Seeder;
-use Core\Api\App\Data\Entities\Customer;
+use Candonga\Data\Entities\Customer;
 use Carbon\Carbon;
 
 class CustomersTableSeeder extends Seeder

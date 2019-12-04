@@ -33,7 +33,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Core\\Api\\": "core/api/src"
+            "Candonga\\": "core/api/src"
         },
         "classmap": [
             "database/seeds",

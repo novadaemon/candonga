@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
 
         User::forceCreate([
             'name' => 'admin',
-            'email' => 'admin',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('YourP@ssword'),
             'api_token' => Str::random(80),
         ]);

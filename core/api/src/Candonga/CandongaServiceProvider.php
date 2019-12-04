@@ -1,11 +1,10 @@
 <?php
 
-namespace Core\Api;
+namespace Candonga;
 
-use Core\Api\App\Http\Controllers\ApiController;
 use Illuminate\Support\ServiceProvider;
 
-class ApiServiceProvider extends ServiceProvider
+class CandongaServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
