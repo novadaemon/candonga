@@ -3,6 +3,7 @@
 namespace Candonga;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\Resource;
 
 class CandongaServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,8 @@ class CandongaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Resource::withoutWrapping();
+
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->loadViewsFrom(__DIR__.'/views', 'api');

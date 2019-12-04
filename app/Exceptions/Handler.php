@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Candonga\Http\Responses\ApiResponse;
 
 class Handler extends ExceptionHandler
 {
@@ -60,11 +61,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         return $request->expectsJson()
-            ? response()->json([
-                'succes'    => false,
-                'data'      => [],
-                'message'   => 'Invalid token'
-            ], 401)
+            ? ApiResponse::response(false, [], 'Invalid token',401)
             : redirect()->guest($exception->redirectTo() ?? route('login'));
     }
 }

@@ -3,9 +3,8 @@
 namespace Candonga\Data\Entities;
 
 use Faker\Provider\Uuid;
-use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Customer extends AbstractEntity
 {
     public $table = 'customers';
 

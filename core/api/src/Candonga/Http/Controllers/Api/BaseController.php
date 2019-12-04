@@ -1,4 +1,4 @@
-<?php namespace Candonga\Controllers;
+<?php namespace Candonga\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
@@ -18,7 +18,6 @@ abstract class BaseController extends Controller
      */
     protected $request;
 
-
     /**
      * APIController constructor.
      * @param Guard $guard
@@ -30,24 +29,6 @@ abstract class BaseController extends Controller
 
         $this->middleware(['auth:api'])
             ->except('login');
-    }
-
-    /**
-     * @param $success
-     * @param array $data
-     * @param string $message
-     * @param int $status
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function response($success, $data = [], $message = '', $status = 200)
-    {
-        $response = [
-            'success' => $success,
-            'data'    => $data,
-            'message' => $message,
-        ];
-
-        return response()->json($response, $status);
     }
 }
 

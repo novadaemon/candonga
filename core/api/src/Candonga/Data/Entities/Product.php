@@ -2,9 +2,7 @@
 
 namespace Candonga\Data\Entities;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Product extends Model
+class Product extends AbstractEntity
 {
     public $table = 'products';
 
@@ -31,6 +29,6 @@ class Product extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Customer::class);
     }
 }

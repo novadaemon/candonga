@@ -1,7 +1,7 @@
-<?php namespace Candonga\Controllers;
+<?php namespace Candonga\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Candonga\Http\Responses\ApiResponse;
 
 class AuthController extends BaseController
 {
@@ -17,12 +17,10 @@ class AuthController extends BaseController
             'password' => 'required',
         ]);
 
-        if ($validator->fails()) return $this->response(
+        if ($validator->fails()) return ApiResponse::response(
             false,
             [],
-            [
-                'errors' => $validator->errors()
-            ],
+            ['errors' => $validator->errors()],
             422
         );
 
@@ -39,15 +37,10 @@ class AuthController extends BaseController
                 'api_token' => Str::random(80)
             ])->save();
 
-            return $this->response(true, [
-                'Token' => $user->api_token
-            ],
-                ''
-                , 200
-            );
+            return ApiResponse::response(true, ['Token' => $user->api_token], '');
         }
 
-        return $this->response(false, [], 'Email or password invalid', 401);
+        return ApiResponse::response(false, [], 'Email or password invalid', 401);
     }
 
     /**
@@ -61,7 +54,7 @@ class AuthController extends BaseController
 
         $this->guard->logout();
 
-        return $this->response(true, [], 'The user has logout.', 200);
+        return ApiResponse::response(true, [], 'The user has logout.');
     }
 }
 
