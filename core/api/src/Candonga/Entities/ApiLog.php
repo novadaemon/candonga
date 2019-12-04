@@ -1,6 +1,6 @@
 <?php
 
-namespace Candonga\Data\Entities;
+namespace Candonga\Entities;
 
 class ApiLog extends AbstractEntity
 {

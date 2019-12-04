@@ -1,6 +1,6 @@
 <?php
 
-namespace Candonga\Data\Entities;
+namespace Candonga\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

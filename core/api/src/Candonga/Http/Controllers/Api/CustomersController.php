@@ -1,6 +1,6 @@
 <?php namespace Candonga\Http\Controllers\Api;
 
-use Candonga\Data\Entities\Customer;
+use Candonga\Entities\Customer;
 use Candonga\Http\Requests\CustomerRequest;
 use Candonga\Http\Resources\CustomersCollection;
 use Candonga\Http\Resources\Customer as CustomerResource;

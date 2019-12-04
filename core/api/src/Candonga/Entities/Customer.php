@@ -1,6 +1,6 @@
 <?php
 
-namespace Candonga\Data\Entities;
+namespace Candonga\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Faker\Provider\Uuid;
@@ -28,13 +28,6 @@ class Customer extends AbstractEntity
         'date_of_birth',
         'status'
     ];
-
-    public static function getFieldsWithNiceNames()
-    {
-        return [
-
-        ];
-    }
 
     public function products()
     {

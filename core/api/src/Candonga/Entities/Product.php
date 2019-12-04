@@ -1,6 +1,6 @@
 <?php
 
-namespace Candonga\Data\Entities;
+namespace Candonga\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -28,13 +28,6 @@ class Product extends AbstractEntity
         'name',
         'status'
     ];
-
-    public static function getFieldsWithNiceNames()
-    {
-        return [
-
-        ];
-    }
 
     public function customer()
     {
