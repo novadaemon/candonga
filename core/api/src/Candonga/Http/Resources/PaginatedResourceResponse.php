@@ -3,6 +3,13 @@
 use Candonga\Http\Responses\ApiResponse;
 use Illuminate\Http\Resources\Json\PaginatedResourceResponse as BasePaginatedResourceResponse;
 
+/**
+ * Extends from Illuminate\Http\Resources\Json\PaginatedResourceResponse
+ * to customize Response
+ *
+ * Class PaginatedResourceResponse
+ * @package Candonga\Http\Resources
+ */
 class PaginatedResourceResponse extends BasePaginatedResourceResponse
 {
     /**

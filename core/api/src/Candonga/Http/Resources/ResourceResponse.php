@@ -3,6 +3,13 @@
 use Candonga\Http\Responses\ApiResponse;
 use Illuminate\Http\Resources\Json\ResourceResponse as BaseResourceResponse;
 
+/**
+ *  Extends from Illuminate\Http\Resources\Json\ResourceResponse
+ * to customize Response
+ *
+ * Class ResourceResponse
+ * @package Candonga\Http\Resources
+ */
 class ResourceResponse extends BaseResourceResponse
 {
     /**

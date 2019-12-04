@@ -19,7 +19,8 @@ class CreateCustomersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('date_of_birth');
-            $table->enum('status', ['new', 'pending', 'in review', 'approved', 'inactive', 'deleted']);
+            $table->enum('status', ['new', 'pending', 'in review', 'approved', 'inactive', 'deleted'])
+                ->default('new');
             $table->timestamps();
             $table->softDeletes();
         });

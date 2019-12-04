@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->integer('customer_id', 0,1);
             $table->string('issn');
             $table->string('name');
-            $table->enum('status', ['new', 'pending', 'in review', 'approved', 'inactive', 'deleted']);
+            $table->enum('status', ['new', 'pending', 'in review', 'approved', 'inactive', 'deleted'])
+                ->default('new');
             $table->timestamps();
             $table->softDeletes();
 

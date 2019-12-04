@@ -2,13 +2,20 @@
 
 namespace Candonga\Data\Entities;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Faker\Provider\Uuid;
 
 class Customer extends AbstractEntity
 {
-    public $table = 'customers';
+    use SoftDeletes;
 
-    public $dates = ['created_at', 'updated_at', 'deleted_at', 'date_of_birth'];
+    protected $table = 'customers';
+
+    protected $dates = ['date_of_birth', 'created_at', 'updated_at', 'deleted_at'];
+
+    protected $attributes = [
+        'status' => 'new'
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -41,5 +48,15 @@ class Customer extends AbstractEntity
         static::creating(function($record){
             $record->uuid = Uuid::uuid();
         });
+
+        static::deleting(function($record){
+            $record->status = 'deleted';
+        });
+
+    }
+
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = $value;
     }
 }

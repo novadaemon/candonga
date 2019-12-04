@@ -2,6 +2,13 @@
 
 use Illuminate\Http\Resources\Json\JsonResource as BaseJsonResource;
 
+/**
+ * Extends Illuminate\Http\Resources\Json\JsonResource to
+ * add necessary methods
+ *
+ * Class JsonResource
+ * @package Candonga\Http\Resources
+ */
 class JsonResource extends BaseJsonResource
 {
     public function toResponse($request)

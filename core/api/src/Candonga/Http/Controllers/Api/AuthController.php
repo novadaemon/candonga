@@ -1,5 +1,6 @@
 <?php namespace Candonga\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Candonga\Http\Responses\ApiResponse;
 
@@ -8,9 +9,9 @@ class AuthController extends BaseController
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $params = $this->request->all();
+        $params = $request->all();
 
         $validator = \Validator::make($params, [
             'email'     => 'required',
@@ -29,9 +30,10 @@ class AuthController extends BaseController
             'password' => $params['password'],
         ];
 
-        if ($this->guard->attempt($credentials))
+        if ($this->guard->validate($credentials))
         {
-            $user = $this->guard->user();
+            $user = $this->guard->getProvider()
+                ->retrieveByCredentials($credentials);
 
             $user->forceFill([
                 'api_token' => Str::random(80)

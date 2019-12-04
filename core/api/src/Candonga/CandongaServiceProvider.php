@@ -20,8 +20,10 @@ class CandongaServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->loadViewsFrom(__DIR__.'/views', 'api');
         $this->publishes([
+            __DIR__.'/config/publish' => base_path('config'),
             __DIR__.'/views' => base_path('resources/views'),
         ]);
+        $this->mergeConfigFrom(__DIR__.'/config/channels.php', 'logging.channels');
     }
 
     /**

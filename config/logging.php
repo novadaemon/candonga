@@ -95,6 +95,7 @@ return [
             'driver' => 'monolog',
             'handler' => NullHandler::class,
         ],
+
     ],
 
 ];

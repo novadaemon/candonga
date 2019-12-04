@@ -22,4 +22,5 @@ class Customer extends JsonResource
             'products' => Product::collection($this->whenLoaded('products'))
         ];
     }
+
 }
