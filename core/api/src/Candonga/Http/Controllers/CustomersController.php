@@ -48,7 +48,7 @@ class CustomersController extends BaseController
             return redirect()->route('customers.edit', $customer->id)
             ->with('success', 'Customer was inserted successfully.');
 
-        return redirect()->back()->withInput()->with('fail', 'Han error has ocurred. Try again.');
+        return redirect()->back()->withInput()->with('fail', 'Han error has occurred. Try again.');
     }
 
     public function delete($id)

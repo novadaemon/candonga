@@ -74,10 +74,12 @@
             <div class="col-md-7 col-lg-8">
                 @if($record->id)
                     <h3 class="mt-0">Products <button style="font-size: 8px;" class="btn btn-success btn-sm btn-product-add" title="Add Product"><i class="fa fa-plus"></i></button></h3>
-                    @error('products')
-                    <span class="invalid-feedback" role="alert" style="display: inline-block">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                    @error('products.*')
+                        <div>
+                            <span class="invalid-feedback" role="alert" style="display: inline-block">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    </div>
                     @enderror
                     <table id="table-products" class="table table-tripped table-hover">
                         <thead>
@@ -116,13 +118,13 @@
             var row = '<tr>\
                              <td>\
                                 <input type="hidden" name="products['+id+'][id]" value="'+id+'">\
-                                 <input type="text" class="form-control form-control-sm" name="products['+id+'][issn]" required>\
+                                 <input type="text" class="form-control form-control-sm" name="products['+id+'][issn]">\
                              </td>\
                              <td>\
-                                 <input type="text" class="form-control form-control-sm" name="products['+id+'][name]" required>\
+                                 <input type="text" class="form-control form-control-sm" name="products['+id+'][name]">\
                              </td>\
                              <td>\
-                                 <select name="products['+id+'][status]" class="form-control form-control-sm" required>\
+                                 <select name="products['+id+'][status]" class="form-control form-control-sm">\
                                      <option value="new">new</option>\
                                      <option value="pending">pending</option>\
                                      <option value="in review">in review</option>\

@@ -23,25 +23,23 @@ abstract class  ApiResponse
         if($additional)
             $response = array_merge($response, $additional);
 
-        if(config('candonga.api.logging.store'))
-
-            /**
-             * Log only if Token is sent
-             * and store log is set true
-             */
-            if(request()->user() && config('candonga.api.logging.store')){
-                Log::channel(config('candonga.api.logging.use_channel'))->info($message, [
-                    'user' => request()->user()  ? request()->user()->email : '',
-                    'endpoint' => request()->getUri(),
-                    'request' => [
-                        'parameters' => request()->all()
-                    ],
-                    'response' => [
-                        'status' => $status,
-                        'content'  => $response
-                    ]
-                ]);
-            }
+        /**
+         * Log only if Token is sent
+         * and store log is set true
+         */
+        if(request()->user() && config('candonga.api.logging.store')){
+            Log::channel(config('candonga.api.logging.use_channel'))->info($message, [
+                'user' => request()->user()  ? request()->user()->email : '',
+                'endpoint' => request()->getUri(),
+                'request' => [
+                    'parameters' => request()->all()
+                ],
+                'response' => [
+                    'status' => $status,
+                    'content'  => $response
+                ]
+            ]);
+        }
 
         return response()->json($response, $status);
     }

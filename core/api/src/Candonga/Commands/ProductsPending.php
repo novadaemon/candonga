@@ -43,7 +43,7 @@ class ProductsPending extends Command
     {
         $weeks = (int) $this->argument('weeks');
 
-        $this->comment(sprintf('Finding products with status "pending" before than %d week(s)', $weeks));
+        $this->comment(sprintf('Searching products with status "pending" before %d week(s)', $weeks));
 
         $last_day = Carbon::now()->sub("{$weeks} weeks")->format('Y-m-d');
 

@@ -2,18 +2,21 @@
 
 namespace Candonga\Rules;
 
+use Candonga\Http\Requests\CustomerRequest;
 use Illuminate\Contracts\Validation\Rule;
 
 class CheckDuplicate implements Rule
 {
+    protected $request;
+
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CustomerRequest $request)
     {
-        //
+        $this->request = $request;
     }
 
     /**
@@ -25,9 +28,12 @@ class CheckDuplicate implements Rule
      */
     public function passes($attribute, $value)
     {
-        $issns = collect($value)->pluck('issn')->all();
+        $issns = collect($this->request->get('products'))
+            ->where('issn', '<>', null)
+            ->pluck('issn')->toArray();
+        $issns = array_count_values($issns);
 
-        if(count(array_unique($issns))< count($issns))
+        if($issns[$value] > 1)
             return false;
 
         return true;

@@ -4,6 +4,7 @@ namespace Candonga\Http\Requests;
 
 use Candonga\Rules\CheckDuplicate;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CustomerRequest extends FormRequest
 {
@@ -31,9 +32,22 @@ class CustomerRequest extends FormRequest
             'status' => 'nullable|in:new,pending,in review,approved,inactive,deleted',
             'products' => [
                 'nullable',
-                'array',
-                new CheckDuplicate()
-            ]
+                'array'
+            ],
+            'products.*.issn' => [
+                'required',
+                new CheckDuplicate($this)
+            ],
+            'products.*.name' => 'required',
+            'products.*.status' => 'nullable|in:new,pending,in review,approved,inactive,deleted',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'products.*.issn.required' => "There are empty fields",
+            'products.*.name.required' => "The are empty fields"
         ];
     }
 }
