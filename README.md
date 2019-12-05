@@ -9,6 +9,17 @@ Install PHP dependencies
 $ composer install
 ```
 
+Copy .env file
+```
+$ cp .env.example .env
+```
+
+Generate app key
+
+```
+$ php artisan key:generate
+``` 
+
 Create a fresh database
 ```sql
 CREATE DATABASE candonga; 
