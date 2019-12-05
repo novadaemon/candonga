@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Candonga\Data\Entities\Customer;
+use Candonga\Entities\Customer;
 
 class CustomersTableSeeder extends Seeder
 {

@@ -10,6 +10,12 @@
             <form class="form-signin" method="POST" action="{{ route('login') }}">
                 @csrf
                 <p>Sign in so you can see who has visited our Candonga and what products they have purchased</p>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p>Default credentials</p>
+                        <b>User:</b> admin@candonga.com <b>Pass:</b> YourP@ssword
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Email address</label>
                     <div class="input-group">

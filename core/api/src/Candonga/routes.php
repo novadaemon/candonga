@@ -39,7 +39,7 @@ Route::group(['middleware' => 'web'], function() {
  |API Routes
  |
  */
-Route::group(['namespace' => 'Candonga\Http\ControllersApi', 'prefix' => 'api'], function(){
+Route::group(['namespace' => 'Candonga\Http\Controllers\Api', 'prefix' => 'api'], function(){
     /**
      * Auth routes
      */

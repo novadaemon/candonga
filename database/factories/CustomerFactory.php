@@ -1,7 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use Candonga\Data\Entities\Customer;
+use Candonga\Entities\Customer;
 use Faker\Generator as Faker;
 use Carbon\Carbon;
 

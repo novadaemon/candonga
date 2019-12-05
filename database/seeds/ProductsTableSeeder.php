@@ -3,7 +3,7 @@
 use Faker\Factory;
 
 use Illuminate\Database\Seeder;
-use Candonga\Data\Entities\Customer;
+use Candonga\Entities\Customer;
 
 class ProductsTableSeeder extends Seeder
 {
