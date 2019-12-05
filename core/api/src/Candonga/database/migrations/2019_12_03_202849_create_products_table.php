@@ -23,6 +23,9 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
+            //Unique index
+            $table->unique(['customer_id', 'issn']);
+
             //Foreing keys
             $table->foreign('customer_id')
                 ->on('customers')
