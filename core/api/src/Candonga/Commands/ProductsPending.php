@@ -41,7 +41,7 @@ class ProductsPending extends Command
      */
     public function handle()
     {
-        $weeks = $this->argument('weeks');
+        $weeks = (int) $this->argument('weeks');
 
         $this->comment(sprintf('Finding products with status "pending" before than %d week(s)', $weeks));
 
