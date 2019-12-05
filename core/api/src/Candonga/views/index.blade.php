@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="py-5 text-center">
         <h2>Welcome to Candonga</h2>
@@ -8,16 +7,37 @@
 
     <div class="row">
         <div class="col-md-8">
-            <form class="form-signin">
+            <form class="form-signin" method="POST" action="{{ route('login') }}">
+                @csrf
                 <p>Sign in so you can see who has visited our Candonga and what products they have purchased</p>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p>Default credentials</p>
+                        <b>User:</b> admin@candonga.com <b>Pass:</b> YourP@ssword
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Email address</label>
-                    <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+                    <div class="input-group">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" required="" autofocus="" value="{{ old('email') }}">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" required="">
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required="">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
 
                 <hr class="mb-4">

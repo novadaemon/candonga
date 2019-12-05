@@ -1,4 +1,4 @@
-<?php
+<?php namespace Candonga\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Candonga\Entities\Customer;

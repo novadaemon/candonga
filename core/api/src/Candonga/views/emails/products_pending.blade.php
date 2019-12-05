@@ -5,7 +5,7 @@
     <h1 style="text-align: center;">CANDONGA SHOPSTORE</h1>
     </p>
     <div>
-        <h4>There are {{ $products->count() }} product(s) pending before {{ $weeks }} week(s)</h4>
+        <h4>There are {{ $products->count() }} product(s) pending before {{ $weeks }} weeks</h4>
         <table width="100%">
             <thead>
             <tr>

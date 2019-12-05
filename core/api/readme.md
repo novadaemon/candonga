@@ -39,7 +39,7 @@ $ php artisan migrate --seed
 
 Publish vendors
 ```
-$ php artisan vendor:publish -tag=candonga
+$ php artisan vendor:publish --tag=candonga
 ```
 
 Add Candonga Provider into `config/app.php`

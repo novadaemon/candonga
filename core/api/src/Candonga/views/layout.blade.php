@@ -28,15 +28,36 @@
     </style>
 </head>
 <body class="bg-light">
-<div class="container">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            @if(session('fail'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('fail') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+    </div>
     @yield('content')
-     <footer class="my-5 pt-5 text-muted text-center text-small">
+    <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; -2019 Jesús Damián</p>
         <ul class="list-inline">
         </ul>
     </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    @stack('js')
 </body>
 </html>

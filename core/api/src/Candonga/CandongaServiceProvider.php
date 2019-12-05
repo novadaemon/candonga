@@ -24,7 +24,7 @@ class CandongaServiceProvider extends ServiceProvider
         }
 
         $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadViewsFrom(__DIR__.'/views', 'api');
         $this->publishes([
             __DIR__.'/config/publish' => base_path('config'),
