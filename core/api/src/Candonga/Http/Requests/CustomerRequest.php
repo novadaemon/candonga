@@ -2,6 +2,7 @@
 
 namespace Candonga\Http\Requests;
 
+use Candonga\Rules\CheckDuplicate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CustomerRequest extends FormRequest
@@ -27,7 +28,12 @@ class CustomerRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'date_of_birth' => 'required|date_format:Y-m-d',
-            'status' => 'nullable|in:new,pending,in review,approved,inactive,deleted'
+            'status' => 'nullable|in:new,pending,in review,approved,inactive,deleted',
+            'products' => [
+                'nullable',
+                'array',
+                new CheckDuplicate()
+            ]
         ];
     }
 }

@@ -74,49 +74,27 @@
             <div class="col-md-7 col-lg-8">
                 @if($record->id)
                     <h3 class="mt-0">Products <button style="font-size: 8px;" class="btn btn-success btn-sm btn-product-add" title="Add Product"><i class="fa fa-plus"></i></button></h3>
-                        <table id="table-products" class="table table-tripped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Issn</th>
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    <th width="120px">Created at</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                             @foreach($record->products as $product)
-                                 <tr>
-                                     <td>
-                                         <input type="text" class="form-control form-control-sm" name="products[{{ $product->id }}][issn]" value="{{ $product->issn }}" required>
-                                     </td>
-                                     <td>
-                                         <input type="text" class="form-control form-control-sm" name="products[{{ $product->id }}][name]" value="{{ $product->name }}" required>
-                                     </td>
-                                     <td>
-                                         <select name="products[{{ $product->id }}][status]" class="form-control form-control-sm" required>
-                                             <option value="new" @if($product->status == 'new') selected @endif>new</option>
-                                             <option value="pending" @if($product->status == 'pending') selected @endif>pending</option>
-                                             <option value="in review" @if($product->status == 'in review') selected @endif>in review</option>
-                                             <option value="approved" @if($product->status == 'approved') selected @endif>approved</option>
-                                             <option value="inactive" @if($product->status == 'inactive') selected @endif>inactive</option>
-                                             <option value="deleted" @if($product->status == 'deleted') selected @endif>deleted</option>
-                                         </select>
-                                     </td>
-                                     <td>
-                                         <input type="text" class="form-control form-control-sm" readonly value="{{ $product->created_at->format('Y-m-d') }}">
-                                     </td>
-                                     <td style="text-align: right;">
-                                          <a href="" class="btn btn-danger btn-sm btn-product-delete" title="Delete">
-                                             <i class="fa fa-trash"></i>
-                                         </a>
-                                     </td>
-                                 </tr>
-                             @endforeach
-                            </tbody>
-                        </table>
-                    @endif
-                </div>
+                    @error('products')
+                    <span class="invalid-feedback" role="alert" style="display: inline-block">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <table id="table-products" class="table table-tripped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Issn</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th width="120px">Created at</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @each('customers.partials.products', empty(old('products')) ? $record->products->toArray() : old('products'), 'product')
+                        </tbody>
+                    </table>
+                @endif
+            </div>
             <div class="col-md-12 mt-2">
                 <button class="btn btn-primary btn-block" type="submit">Save changes</button>
             </div>
@@ -125,18 +103,19 @@
 @stop
 @push('js')
     <script>
-            $(document).on('click', '.btn-product-delete', function(e){
-                e.preventDefault();
-               $(this).parents('tr').remove();
-            });
+        $(document).on('click', '.btn-product-delete', function(e){
+            e.preventDefault();
+            $(this).parents('tr').remove();
+        });
 
-            $('.btn-product-add').on('click', function(e){
-                e.preventDefault();
+        $('.btn-product-add').on('click', function(e){
+            e.preventDefault();
 
-                var id = Math.random().toString(36).substr(2, 9);
+            var id = Math.random().toString(36).substr(2, 9);
 
-                var row = '<tr>\
+            var row = '<tr>\
                              <td>\
+                                <input type="hidden" name="products['+id+'][id]" value="'+id+'">\
                                  <input type="text" class="form-control form-control-sm" name="products['+id+'][issn]" required>\
                              </td>\
                              <td>\
@@ -153,7 +132,7 @@
                                  </select>\
                              </td>\
                              <td>\
-                                 <input type="text" class="form-control form-control-sm" readonly="">\
+                                 <input type="text" name="products['+id+'][created_at]" class="form-control form-control-sm" readonly="">\
                              </td>\
                              <td style="text-align: right;">\
                                   <a href="" class="btn btn-danger btn-sm btn-product-delete" title="Delete">\
@@ -162,9 +141,9 @@
                              </td>\
                          </tr>';
 
-                $('#table-products').append(row);
+            $('#table-products').append(row);
 
-            });
+        });
 
 
     </script>
