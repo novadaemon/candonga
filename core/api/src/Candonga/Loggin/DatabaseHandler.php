@@ -4,7 +4,7 @@ namespace Candonga\Logging;
 
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
-use Candonga\Data\Entities\ApiLog;
+use Candonga\Entities\ApiLog;
 use Monolog\Formatter\FormatterInterface;
 
 

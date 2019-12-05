@@ -1,6 +1,45 @@
 <?php
 
-Route::group(['namespace' => 'Candonga\Http\Controllers\Api', 'prefix' => 'api'], function(){
+Route::group(['middleware' => 'web'], function() {
+
+    Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login')->name('login');
+    Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+    Route::group(['namespace' => 'Candonga\Http\Controllers'], function(){
+
+        /* Index */
+        Route::get('/', 'IndexController@index')->name('index');
+
+        /**
+         * Protected routes
+         */
+        Route::group(['middleware' => 'auth'], function(){
+
+            /**
+             * Customers
+             */
+            Route::group(['prefix' => 'customers', 'as' => 'customers.'], function(){
+                Route::get('/', ['uses' => 'CustomersController@index', 'as' => 'index']);
+                Route::get('/add', ['uses' => 'CustomersController@add', 'as' => 'add']);
+                Route::put('/', ['uses' => 'CustomersController@store', 'as' => 'store']);
+                Route::get('/{id}', ['uses' => 'CustomersController@edit', 'as' => 'edit']);
+                Route::post('/{id}', ['uses' => 'CustomersController@update', 'as' => 'update']);
+                Route::delete('/{id}', ['uses' => 'CustomersController@delete', 'as' => 'delete']);
+            });
+
+        });
+    });
+
+
+});
+
+
+/*
+ |
+ |API Routes
+ |
+ */
+Route::group(['namespace' => 'Candonga\Http\ControllersApi', 'prefix' => 'api'], function(){
     /**
      * Auth routes
      */
@@ -27,3 +66,6 @@ Route::group(['namespace' => 'Candonga\Http\Controllers\Api', 'prefix' => 'api']
         Route::delete('/{id}', 'ProductsController@delete');
     });
 });
+
+
+

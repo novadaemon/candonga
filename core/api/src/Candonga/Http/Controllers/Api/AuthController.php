@@ -50,13 +50,16 @@ class AuthController extends BaseController
      */
     public function logout()
     {
-        $this->request->user()->forceFill([
-            'api_token' => null
-        ])->save();
+        if($this->request->user()){
+            $this->request->user()->forceFill([
+                'api_token' => null
+            ])->save();
 
-        $this->guard->logout();
+            $this->guard->logout();
 
-        return ApiResponse::response(true, [], 'The user has logout.');
+            return ApiResponse::response(true, [], 'The user has logout.');
+        }
+
     }
 }
 

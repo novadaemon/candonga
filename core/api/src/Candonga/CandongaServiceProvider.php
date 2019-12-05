@@ -29,6 +29,7 @@ class CandongaServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/publish' => base_path('config'),
             __DIR__.'/views' => base_path('resources/views'),
+            __DIR__.'/assets' => public_path('assets'),
         ], 'candonga');
         $this->mergeConfigFrom(__DIR__.'/config/channels.php', 'logging.channels');
     }

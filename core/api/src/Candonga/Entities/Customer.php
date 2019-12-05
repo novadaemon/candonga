@@ -26,7 +26,8 @@ class Customer extends AbstractEntity
         'first_name',
         'last_name',
         'date_of_birth',
-        'status'
+        'status',
+        'products'
     ];
 
     public function products()
@@ -51,5 +52,35 @@ class Customer extends AbstractEntity
     public function setDateOfBirthAttribute($value)
     {
         $this->attributes['date_of_birth'] = $value;
+    }
+
+    public function setProductsAttribute($values)
+    {
+        /**
+         * Store ids send
+         */
+        $ids = [];
+
+        foreach ($values as $id => $data)
+        {
+            $product = $this->products()->find($id);
+
+            if($product == null){
+                //New product, insert
+                $product = Product::create(
+                    ['customer_id' => $this->id] + $data
+                );
+                $ids[] = $product->id;
+            }else{
+                // Product exist, update
+                $product->update($data);
+                $ids[] = $id;
+            }
+        }
+
+        //Remove customer products that no are in $ids
+        if(!empty($ids))
+            $this->products()->whereNotIn('products.id', $ids)
+                ->delete();
     }
 }
