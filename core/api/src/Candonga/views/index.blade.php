@@ -45,7 +45,7 @@
             </form>
         </div>
         <div class="col-md-4 mb-4">
-            <p>Scared by multitutes. Try Candonga remotely using its simple RESTful API</p>
+            <p>Scared by crowds. Try Candonga remotely using its simple RESTful API</p>
             <a href="https://documenter.getpostman.com/view/9689259/SWE3bepC?version=latest#49308999-3427-43aa-86cf-eff2875a06fe" class="btn btn-success" target="_blank">See API documentation</a>
         </div>
     </div>
