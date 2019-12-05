@@ -39,8 +39,8 @@ Configure Laravel database connection in .env
 
 ```
 DB_DATABASE=candonga
-DB_USERNAME=root
-DB_PASSWORD=Cobra3000-
+DB_USERNAME=user
+DB_PASSWORD=YourP@ssword
 ```
 
 Create database schema and run seeds
