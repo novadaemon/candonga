@@ -53,25 +53,6 @@ Publish vendors
 $ php artisan vendor:publish --tag=candonga --force
 ```
 
-Add Candonga Provider into `config/app.php`
-
-```php
-'providers' => [
-    /*
-     * Laravel Framework Service Providers...
-     */
-     ...
-     Candonga\CandongaServiceProvider::class,
-```
-
-Change `bootstrap/app.php` to use Candonga Exceptions Handler
-```php
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Candonga\Exceptions\Handler::class
-);
-```
-
 ## Usage
 Run server
 ```
