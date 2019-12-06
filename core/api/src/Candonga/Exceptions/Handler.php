@@ -38,6 +38,7 @@ class Handler extends BaseHandler
 
         if($exception instanceof AuthenticationException){
             $message = 'Token is missing or invalid';
+            $status = 401;
         }elseif($exception instanceof  ValidationException){
             $data = [
                 'errors' => $exception->errors()
