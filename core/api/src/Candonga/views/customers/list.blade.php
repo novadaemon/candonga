@@ -56,13 +56,13 @@
             if(i){
                 $.ajax({
                     type: 'post',
-                    url: 'customers/'+id,
+                    url: id,
                     data: {
                         _method: 'DELETE',
                         _token: '{{ csrf_token() }}',
                     },
                     success: function(resp, status){
-                        if(status == 'success')
+                        if(resp.statusCode == 200)
                             row.remove();
                         else
                             alert('Han error has occurred. Try again.');

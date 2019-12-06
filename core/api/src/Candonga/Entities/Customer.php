@@ -45,6 +45,10 @@ class Customer extends AbstractEntity
 
         static::deleting(function($record){
             $record->status = 'deleted';
+        });
+
+        static::deleted(function($record){
+            $record->update(['status', 'deleted']);
             $record->products()->delete();
         });
 

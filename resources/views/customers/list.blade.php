@@ -56,7 +56,7 @@
             if(i){
                 $.ajax({
                     type: 'post',
-                    url: 'customers/'+id,
+                    url: id,
                     data: {
                         _method: 'DELETE',
                         _token: '{{ csrf_token() }}',
