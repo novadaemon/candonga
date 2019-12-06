@@ -17,6 +17,9 @@ class Product extends JsonResource
             'issn' => $this->issn,
             'name' => $this->name,
             'status' => $this->status,
+            'meta' => [
+                'link' => url('api/products/'.$this->id)
+            ],
             $this->mergeWhen($this->hasIncludes('customer', $request), [
                 'customer' => new Customer($this->customer)
             ]),

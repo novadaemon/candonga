@@ -19,7 +19,10 @@ class Customer extends JsonResource
             'last_name' => $this->last_name,
             'date_of_birth' => $this->date_of_birth->format('Y-m-d'),
             'status' => $this->status,
-            'products' => Product::collection($this->whenLoaded('products'))
+            'products' => Product::collection($this->whenLoaded('products')),
+            'meta' => [
+                'link' => url('api/customers/'.$this->id)
+            ]
         ];
     }
 
