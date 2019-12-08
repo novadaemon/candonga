@@ -41,8 +41,9 @@ class Handler extends BaseHandler
             $status = 401;
         }elseif($exception instanceof  ValidationException){
             $data = [
-                'errors' => $exception->errors()
+                'errors' => $exception->errors(),
             ];
+            $status = 422;
         }elseif($exception instanceof HttpResponseException) {
             return $exception->getResponse();
 
