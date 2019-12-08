@@ -1,9 +1,11 @@
 <?php namespace Candonga\Http\Resources;
 
 use Countable;
+use IteratorAggregate;
 use Illuminate\Http\Resources\CollectsResources;
 use Illuminate\Pagination\AbstractPaginator;
-use IteratorAggregate;
+use Candonga\Http\Responses\PaginatedResourceResponse;
+
 
 class ResourceCollection extends JsonResource implements Countable, IteratorAggregate
 {

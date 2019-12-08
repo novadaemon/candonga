@@ -1,6 +1,7 @@
 <?php namespace Candonga\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource as BaseJsonResource;
+use Candonga\Http\Responses\ResourceResponse;
 
 /**
  * Extends Illuminate\Http\Resources\Json\JsonResource to
