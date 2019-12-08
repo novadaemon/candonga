@@ -2,7 +2,7 @@
 @section('content')
     <div class="py-5 text-center">
         <h2>Welcome to Candonga</h2>
-        <p class="lead">In Cuba, we call  "Candonga" an street markets where you can find a wide variety of items at very low prices.</p>
+        <p class="lead">In Cuba, we call "Candonga" an street markets where you can find a wide variety of items at very low prices.</p>
     </div>
 
     <div class="row">
