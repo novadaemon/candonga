@@ -1,6 +1,5 @@
 <?php namespace Candonga\Http\Responses;
 
-use Candonga\Http\Responses\ApiResponse;
 use Illuminate\Http\Resources\Json\ResourceResponse as BaseResourceResponse;
 
 /**
