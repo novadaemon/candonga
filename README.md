@@ -63,7 +63,7 @@ $ php artisan serve
 
 The config file allow you to decide if logged or not API requests and responses. It is locate in `config/candonga.php`
 
-There are tow Monolog channels to store logs: *file* and *database*. By default both are used in stack channel named `api`. You can find them in `core/api/config/channels.php`
+There are tow Monolog channels to store logs: *file* and *database*. By default both are used in stack channel named `api`. You can find them in `novadaemon/candonga/config/channels.php`
 
 Candonga has a Laravel command to search products in 'pending' status for a week or more. Take advantage of Laravel's notifications to send an email to the admin user. Check how to use it by typing in the console:
 ```
