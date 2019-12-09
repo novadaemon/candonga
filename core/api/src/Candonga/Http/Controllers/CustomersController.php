@@ -53,10 +53,8 @@ class CustomersController extends BaseController
 
     public function delete($id)
     {
-        if(Customer::destroy($id))
-            return response()->json(['success' => true]);
-        else
-            return response()->json(['success' => false]);
+        return response()->json(['success' => Customer::destroy($id)]);
+
     }
 }
 
