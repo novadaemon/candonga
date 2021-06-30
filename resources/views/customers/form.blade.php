@@ -113,7 +113,9 @@
         $('.btn-product-add').on('click', function(e){
             e.preventDefault();
 
-            var id = Math.random().toString(36).substr(2, 9);
+            var id = Math.floor(Date.now() / 1000)
+
+            console.log(id)
 
             var row = '<tr>\
                              <td>\
