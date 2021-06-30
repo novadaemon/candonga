@@ -1,4 +1,6 @@
-<?php namespace Candonga\Database\Seeds;
+<?php 
+
+namespace Candonga\database\seeds;
 
 use Faker\Factory;
 

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Candonga\Database\Seeds\CustomersTableSeeder;
-use Candonga\Database\Seeds\ProductsTableSeeder;
+use Candonga\database\seeds\CustomersTableSeeder;
+use Candonga\database\seeds\ProductsTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
