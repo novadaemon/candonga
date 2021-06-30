@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'customer_id' => 'required|exists:customers,id',
-            'issn' => 'required|unique:products,issn,'.$this->route('id'),
+            'issn' => 'required|unique:products,issn,'.$this->get('id'),
             'name' => 'required',
             'status' => 'nullable|in:new,pending,in review,approved,inactive,deleted'
         ];

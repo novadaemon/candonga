@@ -70,5 +70,11 @@ Candonga has a Laravel command to search products in 'pending' status for a week
 $ php artisan products:pending --help
 ```
 
+## Screenshot
+![screenshot](screenshot.png)
+
+## View in live
+https://candonga.herokuapp.com
+
 
 
