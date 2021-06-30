@@ -74,7 +74,7 @@ $ php artisan products:pending --help
 ![screenshot](screenshot.png)
 
 ## View in live
-https://candonga.herokuapp.com
+http://candonga.herokuapp.com
 
 
 
