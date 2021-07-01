@@ -115,8 +115,6 @@
 
             var id = Math.floor(Date.now() / 1000)
 
-            console.log(id)
-
             var row = '<tr>\
                              <td>\
                                 <input type="hidden" name="products['+id+'][id]" value="'+id+'">\
