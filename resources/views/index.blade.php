@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <form class="form-signin" method="POST" action="{{ route('login') }}">
                 @csrf
-                <p>Sign in so you can see who has visited our Candonga and what products they have purchased</p>
+                <p>Log in so you can see the sellers of our Candonga and what products they offer.</p>
                 <div class="card mb-3">
                     <div class="card-body">
                         <p>Default credentials</p>
@@ -45,7 +45,7 @@
             </form>
         </div>
         <div class="col-md-4 mb-4">
-            <p>Scared by crowds. Try Candonga remotely using its simple REST API</p>
+            <p>Scared by crowds. Try Candonga remotely using its simple RESTful API</p>
             <a href="https://documenter.getpostman.com/view/9689259/SWE3bepC?version=latest#49308999-3427-43aa-86cf-eff2875a06fe" class="btn btn-success" target="_blank">See API documentation</a>
         </div>
     </div>
