@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <form class="form-signin" method="POST" action="{{ route('login') }}">
                 @csrf
-                <p>Sign in so you can see who has visited our Candonga and what products they have purchased</p>
+                <p>Log in so you can see the sellers of our Candonga and what products they offer.</p>
                 <div class="card mb-3">
                     <div class="card-body">
                         <p>Default credentials</p>

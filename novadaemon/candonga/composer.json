@@ -1,6 +1,6 @@
 {
-    "name": "jdamian/api",
-    "description": "Application to test RESTful API with Laravel",
+    "name": "novadaemon/candonga",
+    "description": "RESTful API application with Laravel",
     "authors": [
         {
             "name": "Jesus Damian",
