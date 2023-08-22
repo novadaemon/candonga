@@ -5,6 +5,7 @@
 /storage/logs
 /vendor
 /.idea
+/.history
 .env
 .env.backup
 .phpunit.result.cache
